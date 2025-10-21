@@ -1,0 +1,1327 @@
+{
+	"info": {
+		"_postman_id": "666555e4-2651-4b84-a8ec-0d6c1a6320db",
+		"name": "ExpenseTrackerTesting",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "45541286",
+		"_collection_link": "https://praveen-839527.postman.co/workspace/Praveen's-Workspace~71d9bdc3-246d-4b82-8b06-96ec677ab052/collection/45541286-666555e4-2651-4b84-a8ec-0d6c1a6320db?action=share&source=collection_link&creator=45541286"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Register (Success)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \r\n    \"email\": \"test@gmail.com\", \r\n    \"password\": \"test123\" \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register (Missing Field)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"test@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register (Already registered)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"test@gmail.com\",\r\n    \"password\": \"test123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login (Success)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"test@gmail.com\",\r\n    \"password\": \"test123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login (Missing Field)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\": \"test123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login (Incorrect Credentials)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"test1@gmail.com\",   \r\n    \"password\": \"test123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout (Success)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjlkMjEzMGZlZjAyNTg3ZmQ4ODYxODg2OTgyMjczNGVmNzZhMTExNjUiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vZXhwZW5zZXRyYWNrZXItNDRiOTciLCJhdWQiOiJleHBlbnNldHJhY2tlci00NGI5NyIsImF1dGhfdGltZSI6MTc2MTAyNTkzMiwidXNlcl9pZCI6ImNrM0hUVjJWcjBnRXIzMFVvQlRaMmtwWnVTazEiLCJzdWIiOiJjazNIVFYyVnIwZ0VyMzBVb0JUWjJrcFp1U2sxIiwiaWF0IjoxNzYxMDI1OTMyLCJleHAiOjE3NjEwMjk1MzIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsidGVzdEBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.oDoDih7a9fyVx8IAm2_BOA_PZ35JRYlGvqfTCx58kLYGNDDjBEYw4sR_wf7osIPJOHkosyKqXzSlh3e5Gsd-yA-rBLqwDDK8yLF6dDxTFglVU7Z7i4gS0koAlLn6nqpM0wsVsN19v2mTTyBFpJjhilvTiJWW5nrvV3yYFePnt8BFAbAQTZ9RuY1tZEwnDoQWHii5SXAg-AsGttqWgS8Qv6rC6jmjrWyoSU2ty0qZKr8QnGWDoafR4t_DeV9zmiqVoX6vE4f3xpZ5tGR-LExO07Ac2y0ZVtb7imfjRYGcpF5lLyANY-KRzChUY-MpKX_IuIX78Ep4l4eTWwjDhJz97g",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout (Missing Token)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjlkMjEzMGZlZjAyNTg3ZmQ4ODYxODg2OTgyMjczNGVmNzZhMTExNjUiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vZXhwZW5zZXRyYWNrZXItNDRiOTciLCJhdWQiOiJleHBlbnNldHJhY2tlci00NGI5NyIsImF1dGhfdGltZSI6MTc2MTAyNTkzMiwidXNlcl9pZCI6ImNrM0hUVjJWcjBnRXIzMFVvQlRaMmtwWnVTazEiLCJzdWIiOiJjazNIVFYyVnIwZ0VyMzBVb0JUWjJrcFp1U2sxIiwiaWF0IjoxNzYxMDI1OTMyLCJleHAiOjE3NjEwMjk1MzIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsidGVzdEBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.oDoDih7a9fyVx8IAm2_BOA_PZ35JRYlGvqfTCx58kLYGNDDjBEYw4sR_wf7osIPJOHkosyKqXzSlh3e5Gsd-yA-rBLqwDDK8yLF6dDxTFglVU7Z7i4gS0koAlLn6nqpM0wsVsN19v2mTTyBFpJjhilvTiJWW5nrvV3yYFePnt8BFAbAQTZ9RuY1tZEwnDoQWHii5SXAg-AsGttqWgS8Qv6rC6jmjrWyoSU2ty0qZKr8QnGWDoafR4t_DeV9zmiqVoX6vE4f3xpZ5tGR-LExO07Ac2y0ZVtb7imfjRYGcpF5lLyANY-KRzChUY-MpKX_IuIX78Ep4l4eTWwjDhJz97g",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout (Invalid token)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer AeyJhbGciOiJSUzI1NiIsImtpZCI6IjlkMjEzMGZlZjAyNTg3ZmQ4ODYxODg2OTgyMjczNGVmNzZhMTExNjUiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vZXhwZW5zZXRyYWNrZXItNDRiOTciLCJhdWQiOiJleHBlbnNldHJhY2tlci00NGI5NyIsImF1dGhfdGltZSI6MTc2MTAyNTkzMiwidXNlcl9pZCI6ImNrM0hUVjJWcjBnRXIzMFVvQlRaMmtwWnVTazEiLCJzdWIiOiJjazNIVFYyVnIwZ0VyMzBVb0JUWjJrcFp1U2sxIiwiaWF0IjoxNzYxMDI1OTMyLCJleHAiOjE3NjEwMjk1MzIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsidGVzdEBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.oDoDih7a9fyVx8IAm2_BOA_PZ35JRYlGvqfTCx58kLYGNDDjBEYw4sR_wf7osIPJOHkosyKqXzSlh3e5Gsd-yA-rBLqwDDK8yLF6dDxTFglVU7Z7i4gS0koAlLn6nqpM0wsVsN19v2mTTyBFpJjhilvTiJWW5nrvV3yYFePnt8BFAbAQTZ9RuY1tZEwnDoQWHii5SXAg-AsGttqWgS8Qv6rC6jmjrWyoSU2ty0qZKr8QnGWDoafR4t_DeV9zmiqVoX6vE4f3xpZ5tGR-LExO07Ac2y0ZVtb7imfjRYGcpF5lLyANY-KRzChUY-MpKX_IuIX78Ep4l4eTWwjDhJz97g",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Expense Routes",
+			"item": [
+				{
+					"name": "AddExpense (Success)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjlkMjEzMGZlZjAyNTg3ZmQ4ODYxODg2OTgyMjczNGVmNzZhMTExNjUiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vZXhwZW5zZXRyYWNrZXItNDRiOTciLCJhdWQiOiJleHBlbnNldHJhY2tlci00NGI5NyIsImF1dGhfdGltZSI6MTc2MTAyNTkzMiwidXNlcl9pZCI6ImNrM0hUVjJWcjBnRXIzMFVvQlRaMmtwWnVTazEiLCJzdWIiOiJjazNIVFYyVnIwZ0VyMzBVb0JUWjJrcFp1U2sxIiwiaWF0IjoxNzYxMDI1OTMyLCJleHAiOjE3NjEwMjk1MzIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsidGVzdEBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.oDoDih7a9fyVx8IAm2_BOA_PZ35JRYlGvqfTCx58kLYGNDDjBEYw4sR_wf7osIPJOHkosyKqXzSlh3e5Gsd-yA-rBLqwDDK8yLF6dDxTFglVU7Z7i4gS0koAlLn6nqpM0wsVsN19v2mTTyBFpJjhilvTiJWW5nrvV3yYFePnt8BFAbAQTZ9RuY1tZEwnDoQWHii5SXAg-AsGttqWgS8Qv6rC6jmjrWyoSU2ty0qZKr8QnGWDoafR4t_DeV9zmiqVoX6vE4f3xpZ5tGR-LExO07Ac2y0ZVtb7imfjRYGcpF5lLyANY-KRzChUY-MpKX_IuIX78Ep4l4eTWwjDhJz97g",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \r\n    \"title\": \"Dinner\", \r\n    \"amount\": 750, \r\n    \"category\": \"Food\", \r\n    \"date\": \"2025-10-12\" \r\n} ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/expenses",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"expenses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddExpense (Missing field)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjlkMjEzMGZlZjAyNTg3ZmQ4ODYxODg2OTgyMjczNGVmNzZhMTExNjUiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vZXhwZW5zZXRyYWNrZXItNDRiOTciLCJhdWQiOiJleHBlbnNldHJhY2tlci00NGI5NyIsImF1dGhfdGltZSI6MTc2MTAyNTkzMiwidXNlcl9pZCI6ImNrM0hUVjJWcjBnRXIzMFVvQlRaMmtwWnVTazEiLCJzdWIiOiJjazNIVFYyVnIwZ0VyMzBVb0JUWjJrcFp1U2sxIiwiaWF0IjoxNzYxMDI1OTMyLCJleHAiOjE3NjEwMjk1MzIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsidGVzdEBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.oDoDih7a9fyVx8IAm2_BOA_PZ35JRYlGvqfTCx58kLYGNDDjBEYw4sR_wf7osIPJOHkosyKqXzSlh3e5Gsd-yA-rBLqwDDK8yLF6dDxTFglVU7Z7i4gS0koAlLn6nqpM0wsVsN19v2mTTyBFpJjhilvTiJWW5nrvV3yYFePnt8BFAbAQTZ9RuY1tZEwnDoQWHii5SXAg-AsGttqWgS8Qv6rC6jmjrWyoSU2ty0qZKr8QnGWDoafR4t_DeV9zmiqVoX6vE4f3xpZ5tGR-LExO07Ac2y0ZVtb7imfjRYGcpF5lLyANY-KRzChUY-MpKX_IuIX78Ep4l4eTWwjDhJz97g",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Coffee Break\",\r\n    \"date\": \"2025-10-01\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/expenses",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"expenses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddExpense (Missing token)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjlkMjEzMGZlZjAyNTg3ZmQ4ODYxODg2OTgyMjczNGVmNzZhMTExNjUiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vZXhwZW5zZXRyYWNrZXItNDRiOTciLCJhdWQiOiJleHBlbnNldHJhY2tlci00NGI5NyIsImF1dGhfdGltZSI6MTc2MTAyNTkzMiwidXNlcl9pZCI6ImNrM0hUVjJWcjBnRXIzMFVvQlRaMmtwWnVTazEiLCJzdWIiOiJjazNIVFYyVnIwZ0VyMzBVb0JUWjJrcFp1U2sxIiwiaWF0IjoxNzYxMDI1OTMyLCJleHAiOjE3NjEwMjk1MzIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsidGVzdEBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.oDoDih7a9fyVx8IAm2_BOA_PZ35JRYlGvqfTCx58kLYGNDDjBEYw4sR_wf7osIPJOHkosyKqXzSlh3e5Gsd-yA-rBLqwDDK8yLF6dDxTFglVU7Z7i4gS0koAlLn6nqpM0wsVsN19v2mTTyBFpJjhilvTiJWW5nrvV3yYFePnt8BFAbAQTZ9RuY1tZEwnDoQWHii5SXAg-AsGttqWgS8Qv6rC6jmjrWyoSU2ty0qZKr8QnGWDoafR4t_DeV9zmiqVoX6vE4f3xpZ5tGR-LExO07Ac2y0ZVtb7imfjRYGcpF5lLyANY-KRzChUY-MpKX_IuIX78Ep4l4eTWwjDhJz97g",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Coffee Break\",\r\n    \"date\": \"2025-10-01\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/expenses",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"expenses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddExpense (Invalid token)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer AeyJhbGciOiJSUzI1NiIsImtpZCI6IjlkMjEzMGZlZjAyNTg3ZmQ4ODYxODg2OTgyMjczNGVmNzZhMTExNjUiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vZXhwZW5zZXRyYWNrZXItNDRiOTciLCJhdWQiOiJleHBlbnNldHJhY2tlci00NGI5NyIsImF1dGhfdGltZSI6MTc2MTAyNTkzMiwidXNlcl9pZCI6ImNrM0hUVjJWcjBnRXIzMFVvQlRaMmtwWnVTazEiLCJzdWIiOiJjazNIVFYyVnIwZ0VyMzBVb0JUWjJrcFp1U2sxIiwiaWF0IjoxNzYxMDI1OTMyLCJleHAiOjE3NjEwMjk1MzIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsidGVzdEBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.oDoDih7a9fyVx8IAm2_BOA_PZ35JRYlGvqfTCx58kLYGNDDjBEYw4sR_wf7osIPJOHkosyKqXzSlh3e5Gsd-yA-rBLqwDDK8yLF6dDxTFglVU7Z7i4gS0koAlLn6nqpM0wsVsN19v2mTTyBFpJjhilvTiJWW5nrvV3yYFePnt8BFAbAQTZ9RuY1tZEwnDoQWHii5SXAg-AsGttqWgS8Qv6rC6jmjrWyoSU2ty0qZKr8QnGWDoafR4t_DeV9zmiqVoX6vE4f3xpZ5tGR-LExO07Ac2y0ZVtb7imfjRYGcpF5lLyANY-KRzChUY-MpKX_IuIX78Ep4l4eTWwjDhJz97g",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Coffee Break\",\r\n    \"amount\": 250,\r\n    \"category\": \"Beverages\",\r\n    \"date\": \"2025-10-01\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/expenses",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"expenses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateExpense (Success)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjlkMjEzMGZlZjAyNTg3ZmQ4ODYxODg2OTgyMjczNGVmNzZhMTExNjUiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vZXhwZW5zZXRyYWNrZXItNDRiOTciLCJhdWQiOiJleHBlbnNldHJhY2tlci00NGI5NyIsImF1dGhfdGltZSI6MTc2MTAyNTkzMiwidXNlcl9pZCI6ImNrM0hUVjJWcjBnRXIzMFVvQlRaMmtwWnVTazEiLCJzdWIiOiJjazNIVFYyVnIwZ0VyMzBVb0JUWjJrcFp1U2sxIiwiaWF0IjoxNzYxMDI1OTMyLCJleHAiOjE3NjEwMjk1MzIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsidGVzdEBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.oDoDih7a9fyVx8IAm2_BOA_PZ35JRYlGvqfTCx58kLYGNDDjBEYw4sR_wf7osIPJOHkosyKqXzSlh3e5Gsd-yA-rBLqwDDK8yLF6dDxTFglVU7Z7i4gS0koAlLn6nqpM0wsVsN19v2mTTyBFpJjhilvTiJWW5nrvV3yYFePnt8BFAbAQTZ9RuY1tZEwnDoQWHii5SXAg-AsGttqWgS8Qv6rC6jmjrWyoSU2ty0qZKr8QnGWDoafR4t_DeV9zmiqVoX6vE4f3xpZ5tGR-LExO07Ac2y0ZVtb7imfjRYGcpF5lLyANY-KRzChUY-MpKX_IuIX78Ep4l4eTWwjDhJz97g",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Coffee Break\",\r\n    \"amount\": 500,\r\n    \"category\": \"Beverages\",\r\n    \"date\": \"2025-10-01\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/expenses/68f721176cbff348e0a0faf9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"expenses",
+								"68f721176cbff348e0a0faf9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateExpense (Missing token)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjlkMjEzMGZlZjAyNTg3ZmQ4ODYxODg2OTgyMjczNGVmNzZhMTExNjUiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vZXhwZW5zZXRyYWNrZXItNDRiOTciLCJhdWQiOiJleHBlbnNldHJhY2tlci00NGI5NyIsImF1dGhfdGltZSI6MTc2MTAyNTkzMiwidXNlcl9pZCI6ImNrM0hUVjJWcjBnRXIzMFVvQlRaMmtwWnVTazEiLCJzdWIiOiJjazNIVFYyVnIwZ0VyMzBVb0JUWjJrcFp1U2sxIiwiaWF0IjoxNzYxMDI1OTMyLCJleHAiOjE3NjEwMjk1MzIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsidGVzdEBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.oDoDih7a9fyVx8IAm2_BOA_PZ35JRYlGvqfTCx58kLYGNDDjBEYw4sR_wf7osIPJOHkosyKqXzSlh3e5Gsd-yA-rBLqwDDK8yLF6dDxTFglVU7Z7i4gS0koAlLn6nqpM0wsVsN19v2mTTyBFpJjhilvTiJWW5nrvV3yYFePnt8BFAbAQTZ9RuY1tZEwnDoQWHii5SXAg-AsGttqWgS8Qv6rC6jmjrWyoSU2ty0qZKr8QnGWDoafR4t_DeV9zmiqVoX6vE4f3xpZ5tGR-LExO07Ac2y0ZVtb7imfjRYGcpF5lLyANY-KRzChUY-MpKX_IuIX78Ep4l4eTWwjDhJz97g",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Coffee Break\",\r\n    \"amount\": 500,\r\n    \"category\": \"Beverages\",\r\n    \"date\": \"2025-10-01\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/expenses/68f721176cbff348e0a0faf9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"expenses",
+								"68f721176cbff348e0a0faf9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateExpense (Invalid token)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer AeyJhbGciOiJSUzI1NiIsImtpZCI6IjlkMjEzMGZlZjAyNTg3ZmQ4ODYxODg2OTgyMjczNGVmNzZhMTExNjUiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vZXhwZW5zZXRyYWNrZXItNDRiOTciLCJhdWQiOiJleHBlbnNldHJhY2tlci00NGI5NyIsImF1dGhfdGltZSI6MTc2MTAyNTkzMiwidXNlcl9pZCI6ImNrM0hUVjJWcjBnRXIzMFVvQlRaMmtwWnVTazEiLCJzdWIiOiJjazNIVFYyVnIwZ0VyMzBVb0JUWjJrcFp1U2sxIiwiaWF0IjoxNzYxMDI1OTMyLCJleHAiOjE3NjEwMjk1MzIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsidGVzdEBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.oDoDih7a9fyVx8IAm2_BOA_PZ35JRYlGvqfTCx58kLYGNDDjBEYw4sR_wf7osIPJOHkosyKqXzSlh3e5Gsd-yA-rBLqwDDK8yLF6dDxTFglVU7Z7i4gS0koAlLn6nqpM0wsVsN19v2mTTyBFpJjhilvTiJWW5nrvV3yYFePnt8BFAbAQTZ9RuY1tZEwnDoQWHii5SXAg-AsGttqWgS8Qv6rC6jmjrWyoSU2ty0qZKr8QnGWDoafR4t_DeV9zmiqVoX6vE4f3xpZ5tGR-LExO07Ac2y0ZVtb7imfjRYGcpF5lLyANY-KRzChUY-MpKX_IuIX78Ep4l4eTWwjDhJz97g",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Coffee Break\",\r\n    \"amount\": 500,\r\n    \"category\": \"Beverages\",\r\n    \"date\": \"2025-10-01\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/expenses/68f721176cbff348e0a0faf9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"expenses",
+								"68f721176cbff348e0a0faf9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateExpense (Missing field)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjlkMjEzMGZlZjAyNTg3ZmQ4ODYxODg2OTgyMjczNGVmNzZhMTExNjUiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vZXhwZW5zZXRyYWNrZXItNDRiOTciLCJhdWQiOiJleHBlbnNldHJhY2tlci00NGI5NyIsImF1dGhfdGltZSI6MTc2MTAyNTkzMiwidXNlcl9pZCI6ImNrM0hUVjJWcjBnRXIzMFVvQlRaMmtwWnVTazEiLCJzdWIiOiJjazNIVFYyVnIwZ0VyMzBVb0JUWjJrcFp1U2sxIiwiaWF0IjoxNzYxMDI1OTMyLCJleHAiOjE3NjEwMjk1MzIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsidGVzdEBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.oDoDih7a9fyVx8IAm2_BOA_PZ35JRYlGvqfTCx58kLYGNDDjBEYw4sR_wf7osIPJOHkosyKqXzSlh3e5Gsd-yA-rBLqwDDK8yLF6dDxTFglVU7Z7i4gS0koAlLn6nqpM0wsVsN19v2mTTyBFpJjhilvTiJWW5nrvV3yYFePnt8BFAbAQTZ9RuY1tZEwnDoQWHii5SXAg-AsGttqWgS8Qv6rC6jmjrWyoSU2ty0qZKr8QnGWDoafR4t_DeV9zmiqVoX6vE4f3xpZ5tGR-LExO07Ac2y0ZVtb7imfjRYGcpF5lLyANY-KRzChUY-MpKX_IuIX78Ep4l4eTWwjDhJz97g",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Coffee Break\",\r\n    \"amount\": 500,\r\n    \"date\": \"2025-10-01\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/expenses/68f721176cbff348e0a0faf9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"expenses",
+								"68f721176cbff348e0a0faf9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateExpense (Invalid ID)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjlkMjEzMGZlZjAyNTg3ZmQ4ODYxODg2OTgyMjczNGVmNzZhMTExNjUiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vZXhwZW5zZXRyYWNrZXItNDRiOTciLCJhdWQiOiJleHBlbnNldHJhY2tlci00NGI5NyIsImF1dGhfdGltZSI6MTc2MTAzMDYwNSwidXNlcl9pZCI6ImNrM0hUVjJWcjBnRXIzMFVvQlRaMmtwWnVTazEiLCJzdWIiOiJjazNIVFYyVnIwZ0VyMzBVb0JUWjJrcFp1U2sxIiwiaWF0IjoxNzYxMDMwNjA1LCJleHAiOjE3NjEwMzQyMDUsImVtYWlsIjoidGVzdEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsidGVzdEBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.dzfmuxUDB-aT_vSyIuOjImqd7TFlDhzSOLmA-Fssg9ypRxcXin8QVY2aUWhXEBYvIDOtDRUZSDgeGLmSsZ_idzUF8dQLzi9Buc4XMAXFal4Z7qntw3Mnr7A1EgJ6i--WhXXoNITl1Em3gI1MpPzJzkt75w-P1y2dWhtANOt_GsBTLxqxhqnGds-BsbDMxOnVQgCGWCdn41PdfxbYD_gC5cIJEjC8q89rEej0Q5SSs0As7woseFFOJ9eMaMiMAgxPXqdWaeZuxA5lm2-dsa6GUjHBbo84N9v0fRGmv0t1B_6kPsKOb6sY1LpwUiPgq-PzkrVXUU7Z4C7CBHpQzJSj8w",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Coffee Break\",\r\n    \"amount\": 500,\r\n    \"category\": \"Beverages\",\r\n    \"date\": \"2025-10-01\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/expenses/68f721176cbff348e0a0faf9sss",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"expenses",
+								"68f721176cbff348e0a0faf9sss"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteExpense (Success)",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjlkMjEzMGZlZjAyNTg3ZmQ4ODYxODg2OTgyMjczNGVmNzZhMTExNjUiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vZXhwZW5zZXRyYWNrZXItNDRiOTciLCJhdWQiOiJleHBlbnNldHJhY2tlci00NGI5NyIsImF1dGhfdGltZSI6MTc2MTAyNTkzMiwidXNlcl9pZCI6ImNrM0hUVjJWcjBnRXIzMFVvQlRaMmtwWnVTazEiLCJzdWIiOiJjazNIVFYyVnIwZ0VyMzBVb0JUWjJrcFp1U2sxIiwiaWF0IjoxNzYxMDI1OTMyLCJleHAiOjE3NjEwMjk1MzIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsidGVzdEBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.oDoDih7a9fyVx8IAm2_BOA_PZ35JRYlGvqfTCx58kLYGNDDjBEYw4sR_wf7osIPJOHkosyKqXzSlh3e5Gsd-yA-rBLqwDDK8yLF6dDxTFglVU7Z7i4gS0koAlLn6nqpM0wsVsN19v2mTTyBFpJjhilvTiJWW5nrvV3yYFePnt8BFAbAQTZ9RuY1tZEwnDoQWHii5SXAg-AsGttqWgS8Qv6rC6jmjrWyoSU2ty0qZKr8QnGWDoafR4t_DeV9zmiqVoX6vE4f3xpZ5tGR-LExO07Ac2y0ZVtb7imfjRYGcpF5lLyANY-KRzChUY-MpKX_IuIX78Ep4l4eTWwjDhJz97g",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/expenses/68f7263c7c7ca90a9d57f4cf",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"expenses",
+								"68f7263c7c7ca90a9d57f4cf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteExpense (No expense)",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjlkMjEzMGZlZjAyNTg3ZmQ4ODYxODg2OTgyMjczNGVmNzZhMTExNjUiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vZXhwZW5zZXRyYWNrZXItNDRiOTciLCJhdWQiOiJleHBlbnNldHJhY2tlci00NGI5NyIsImF1dGhfdGltZSI6MTc2MTAyNTkzMiwidXNlcl9pZCI6ImNrM0hUVjJWcjBnRXIzMFVvQlRaMmtwWnVTazEiLCJzdWIiOiJjazNIVFYyVnIwZ0VyMzBVb0JUWjJrcFp1U2sxIiwiaWF0IjoxNzYxMDI1OTMyLCJleHAiOjE3NjEwMjk1MzIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsidGVzdEBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.oDoDih7a9fyVx8IAm2_BOA_PZ35JRYlGvqfTCx58kLYGNDDjBEYw4sR_wf7osIPJOHkosyKqXzSlh3e5Gsd-yA-rBLqwDDK8yLF6dDxTFglVU7Z7i4gS0koAlLn6nqpM0wsVsN19v2mTTyBFpJjhilvTiJWW5nrvV3yYFePnt8BFAbAQTZ9RuY1tZEwnDoQWHii5SXAg-AsGttqWgS8Qv6rC6jmjrWyoSU2ty0qZKr8QnGWDoafR4t_DeV9zmiqVoX6vE4f3xpZ5tGR-LExO07Ac2y0ZVtb7imfjRYGcpF5lLyANY-KRzChUY-MpKX_IuIX78Ep4l4eTWwjDhJz97g",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/expenses/68f725837c7ca90a9d57f4cb",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"expenses",
+								"68f725837c7ca90a9d57f4cb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteExpense (Invalid ID)",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjlkMjEzMGZlZjAyNTg3ZmQ4ODYxODg2OTgyMjczNGVmNzZhMTExNjUiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vZXhwZW5zZXRyYWNrZXItNDRiOTciLCJhdWQiOiJleHBlbnNldHJhY2tlci00NGI5NyIsImF1dGhfdGltZSI6MTc2MTAzMDYwNSwidXNlcl9pZCI6ImNrM0hUVjJWcjBnRXIzMFVvQlRaMmtwWnVTazEiLCJzdWIiOiJjazNIVFYyVnIwZ0VyMzBVb0JUWjJrcFp1U2sxIiwiaWF0IjoxNzYxMDMwNjA1LCJleHAiOjE3NjEwMzQyMDUsImVtYWlsIjoidGVzdEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsidGVzdEBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.dzfmuxUDB-aT_vSyIuOjImqd7TFlDhzSOLmA-Fssg9ypRxcXin8QVY2aUWhXEBYvIDOtDRUZSDgeGLmSsZ_idzUF8dQLzi9Buc4XMAXFal4Z7qntw3Mnr7A1EgJ6i--WhXXoNITl1Em3gI1MpPzJzkt75w-P1y2dWhtANOt_GsBTLxqxhqnGds-BsbDMxOnVQgCGWCdn41PdfxbYD_gC5cIJEjC8q89rEej0Q5SSs0As7woseFFOJ9eMaMiMAgxPXqdWaeZuxA5lm2-dsa6GUjHBbo84N9v0fRGmv0t1B_6kPsKOb6sY1LpwUiPgq-PzkrVXUU7Z4C7CBHpQzJSj8w",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/expenses/68f725837c7ca90a9d57f4cb",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"expenses",
+								"68f725837c7ca90a9d57f4cb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteExpense (Missing token)",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjlkMjEzMGZlZjAyNTg3ZmQ4ODYxODg2OTgyMjczNGVmNzZhMTExNjUiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vZXhwZW5zZXRyYWNrZXItNDRiOTciLCJhdWQiOiJleHBlbnNldHJhY2tlci00NGI5NyIsImF1dGhfdGltZSI6MTc2MTAyNTkzMiwidXNlcl9pZCI6ImNrM0hUVjJWcjBnRXIzMFVvQlRaMmtwWnVTazEiLCJzdWIiOiJjazNIVFYyVnIwZ0VyMzBVb0JUWjJrcFp1U2sxIiwiaWF0IjoxNzYxMDI1OTMyLCJleHAiOjE3NjEwMjk1MzIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsidGVzdEBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.oDoDih7a9fyVx8IAm2_BOA_PZ35JRYlGvqfTCx58kLYGNDDjBEYw4sR_wf7osIPJOHkosyKqXzSlh3e5Gsd-yA-rBLqwDDK8yLF6dDxTFglVU7Z7i4gS0koAlLn6nqpM0wsVsN19v2mTTyBFpJjhilvTiJWW5nrvV3yYFePnt8BFAbAQTZ9RuY1tZEwnDoQWHii5SXAg-AsGttqWgS8Qv6rC6jmjrWyoSU2ty0qZKr8QnGWDoafR4t_DeV9zmiqVoX6vE4f3xpZ5tGR-LExO07Ac2y0ZVtb7imfjRYGcpF5lLyANY-KRzChUY-MpKX_IuIX78Ep4l4eTWwjDhJz97g",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/expenses/68f725837c7ca90a9d57f4cb",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"expenses",
+								"68f725837c7ca90a9d57f4cb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteExpense (Invalid token)",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer AeyJhbGciOiJSUzI1NiIsImtpZCI6IjlkMjEzMGZlZjAyNTg3ZmQ4ODYxODg2OTgyMjczNGVmNzZhMTExNjUiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vZXhwZW5zZXRyYWNrZXItNDRiOTciLCJhdWQiOiJleHBlbnNldHJhY2tlci00NGI5NyIsImF1dGhfdGltZSI6MTc2MTAyNTkzMiwidXNlcl9pZCI6ImNrM0hUVjJWcjBnRXIzMFVvQlRaMmtwWnVTazEiLCJzdWIiOiJjazNIVFYyVnIwZ0VyMzBVb0JUWjJrcFp1U2sxIiwiaWF0IjoxNzYxMDI1OTMyLCJleHAiOjE3NjEwMjk1MzIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsidGVzdEBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.oDoDih7a9fyVx8IAm2_BOA_PZ35JRYlGvqfTCx58kLYGNDDjBEYw4sR_wf7osIPJOHkosyKqXzSlh3e5Gsd-yA-rBLqwDDK8yLF6dDxTFglVU7Z7i4gS0koAlLn6nqpM0wsVsN19v2mTTyBFpJjhilvTiJWW5nrvV3yYFePnt8BFAbAQTZ9RuY1tZEwnDoQWHii5SXAg-AsGttqWgS8Qv6rC6jmjrWyoSU2ty0qZKr8QnGWDoafR4t_DeV9zmiqVoX6vE4f3xpZ5tGR-LExO07Ac2y0ZVtb7imfjRYGcpF5lLyANY-KRzChUY-MpKX_IuIX78Ep4l4eTWwjDhJz97g",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/expenses/68f725837c7ca90a9d57f4cb",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"expenses",
+								"68f725837c7ca90a9d57f4cb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getExpenseByID (Success)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjlkMjEzMGZlZjAyNTg3ZmQ4ODYxODg2OTgyMjczNGVmNzZhMTExNjUiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vZXhwZW5zZXRyYWNrZXItNDRiOTciLCJhdWQiOiJleHBlbnNldHJhY2tlci00NGI5NyIsImF1dGhfdGltZSI6MTc2MTAyNTkzMiwidXNlcl9pZCI6ImNrM0hUVjJWcjBnRXIzMFVvQlRaMmtwWnVTazEiLCJzdWIiOiJjazNIVFYyVnIwZ0VyMzBVb0JUWjJrcFp1U2sxIiwiaWF0IjoxNzYxMDI1OTMyLCJleHAiOjE3NjEwMjk1MzIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsidGVzdEBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.oDoDih7a9fyVx8IAm2_BOA_PZ35JRYlGvqfTCx58kLYGNDDjBEYw4sR_wf7osIPJOHkosyKqXzSlh3e5Gsd-yA-rBLqwDDK8yLF6dDxTFglVU7Z7i4gS0koAlLn6nqpM0wsVsN19v2mTTyBFpJjhilvTiJWW5nrvV3yYFePnt8BFAbAQTZ9RuY1tZEwnDoQWHii5SXAg-AsGttqWgS8Qv6rC6jmjrWyoSU2ty0qZKr8QnGWDoafR4t_DeV9zmiqVoX6vE4f3xpZ5tGR-LExO07Ac2y0ZVtb7imfjRYGcpF5lLyANY-KRzChUY-MpKX_IuIX78Ep4l4eTWwjDhJz97g",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/expenses/68f7263c7c7ca90a9d57f4cf",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"expenses",
+								"68f7263c7c7ca90a9d57f4cf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getExpenseByID (Invalid ID)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjlkMjEzMGZlZjAyNTg3ZmQ4ODYxODg2OTgyMjczNGVmNzZhMTExNjUiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vZXhwZW5zZXRyYWNrZXItNDRiOTciLCJhdWQiOiJleHBlbnNldHJhY2tlci00NGI5NyIsImF1dGhfdGltZSI6MTc2MTAyNTkzMiwidXNlcl9pZCI6ImNrM0hUVjJWcjBnRXIzMFVvQlRaMmtwWnVTazEiLCJzdWIiOiJjazNIVFYyVnIwZ0VyMzBVb0JUWjJrcFp1U2sxIiwiaWF0IjoxNzYxMDI1OTMyLCJleHAiOjE3NjEwMjk1MzIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsidGVzdEBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.oDoDih7a9fyVx8IAm2_BOA_PZ35JRYlGvqfTCx58kLYGNDDjBEYw4sR_wf7osIPJOHkosyKqXzSlh3e5Gsd-yA-rBLqwDDK8yLF6dDxTFglVU7Z7i4gS0koAlLn6nqpM0wsVsN19v2mTTyBFpJjhilvTiJWW5nrvV3yYFePnt8BFAbAQTZ9RuY1tZEwnDoQWHii5SXAg-AsGttqWgS8Qv6rC6jmjrWyoSU2ty0qZKr8QnGWDoafR4t_DeV9zmiqVoX6vE4f3xpZ5tGR-LExO07Ac2y0ZVtb7imfjRYGcpF5lLyANY-KRzChUY-MpKX_IuIX78Ep4l4eTWwjDhJz97g",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/expenses/68f7263c7c7ca90a9d57f4cfs",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"expenses",
+								"68f7263c7c7ca90a9d57f4cfs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getExpenseByID (missing token)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjlkMjEzMGZlZjAyNTg3ZmQ4ODYxODg2OTgyMjczNGVmNzZhMTExNjUiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vZXhwZW5zZXRyYWNrZXItNDRiOTciLCJhdWQiOiJleHBlbnNldHJhY2tlci00NGI5NyIsImF1dGhfdGltZSI6MTc2MTAyNTkzMiwidXNlcl9pZCI6ImNrM0hUVjJWcjBnRXIzMFVvQlRaMmtwWnVTazEiLCJzdWIiOiJjazNIVFYyVnIwZ0VyMzBVb0JUWjJrcFp1U2sxIiwiaWF0IjoxNzYxMDI1OTMyLCJleHAiOjE3NjEwMjk1MzIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsidGVzdEBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.oDoDih7a9fyVx8IAm2_BOA_PZ35JRYlGvqfTCx58kLYGNDDjBEYw4sR_wf7osIPJOHkosyKqXzSlh3e5Gsd-yA-rBLqwDDK8yLF6dDxTFglVU7Z7i4gS0koAlLn6nqpM0wsVsN19v2mTTyBFpJjhilvTiJWW5nrvV3yYFePnt8BFAbAQTZ9RuY1tZEwnDoQWHii5SXAg-AsGttqWgS8Qv6rC6jmjrWyoSU2ty0qZKr8QnGWDoafR4t_DeV9zmiqVoX6vE4f3xpZ5tGR-LExO07Ac2y0ZVtb7imfjRYGcpF5lLyANY-KRzChUY-MpKX_IuIX78Ep4l4eTWwjDhJz97g",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/expenses/68f7263c7c7ca90a9d57f4cf",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"expenses",
+								"68f7263c7c7ca90a9d57f4cf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getExpenseByID (Invalid token)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer AeyJhbGciOiJSUzI1NiIsImtpZCI6IjlkMjEzMGZlZjAyNTg3ZmQ4ODYxODg2OTgyMjczNGVmNzZhMTExNjUiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vZXhwZW5zZXRyYWNrZXItNDRiOTciLCJhdWQiOiJleHBlbnNldHJhY2tlci00NGI5NyIsImF1dGhfdGltZSI6MTc2MTAyNTkzMiwidXNlcl9pZCI6ImNrM0hUVjJWcjBnRXIzMFVvQlRaMmtwWnVTazEiLCJzdWIiOiJjazNIVFYyVnIwZ0VyMzBVb0JUWjJrcFp1U2sxIiwiaWF0IjoxNzYxMDI1OTMyLCJleHAiOjE3NjEwMjk1MzIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsidGVzdEBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.oDoDih7a9fyVx8IAm2_BOA_PZ35JRYlGvqfTCx58kLYGNDDjBEYw4sR_wf7osIPJOHkosyKqXzSlh3e5Gsd-yA-rBLqwDDK8yLF6dDxTFglVU7Z7i4gS0koAlLn6nqpM0wsVsN19v2mTTyBFpJjhilvTiJWW5nrvV3yYFePnt8BFAbAQTZ9RuY1tZEwnDoQWHii5SXAg-AsGttqWgS8Qv6rC6jmjrWyoSU2ty0qZKr8QnGWDoafR4t_DeV9zmiqVoX6vE4f3xpZ5tGR-LExO07Ac2y0ZVtb7imfjRYGcpF5lLyANY-KRzChUY-MpKX_IuIX78Ep4l4eTWwjDhJz97g",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/expenses/68f7263c7c7ca90a9d57f4cf",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"expenses",
+								"68f7263c7c7ca90a9d57f4cf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getExpense (Success)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjlkMjEzMGZlZjAyNTg3ZmQ4ODYxODg2OTgyMjczNGVmNzZhMTExNjUiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vZXhwZW5zZXRyYWNrZXItNDRiOTciLCJhdWQiOiJleHBlbnNldHJhY2tlci00NGI5NyIsImF1dGhfdGltZSI6MTc2MTAyNTkzMiwidXNlcl9pZCI6ImNrM0hUVjJWcjBnRXIzMFVvQlRaMmtwWnVTazEiLCJzdWIiOiJjazNIVFYyVnIwZ0VyMzBVb0JUWjJrcFp1U2sxIiwiaWF0IjoxNzYxMDI1OTMyLCJleHAiOjE3NjEwMjk1MzIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsidGVzdEBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.oDoDih7a9fyVx8IAm2_BOA_PZ35JRYlGvqfTCx58kLYGNDDjBEYw4sR_wf7osIPJOHkosyKqXzSlh3e5Gsd-yA-rBLqwDDK8yLF6dDxTFglVU7Z7i4gS0koAlLn6nqpM0wsVsN19v2mTTyBFpJjhilvTiJWW5nrvV3yYFePnt8BFAbAQTZ9RuY1tZEwnDoQWHii5SXAg-AsGttqWgS8Qv6rC6jmjrWyoSU2ty0qZKr8QnGWDoafR4t_DeV9zmiqVoX6vE4f3xpZ5tGR-LExO07Ac2y0ZVtb7imfjRYGcpF5lLyANY-KRzChUY-MpKX_IuIX78Ep4l4eTWwjDhJz97g",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/expenses/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"expenses",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getExpense (missing token)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjlkMjEzMGZlZjAyNTg3ZmQ4ODYxODg2OTgyMjczNGVmNzZhMTExNjUiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vZXhwZW5zZXRyYWNrZXItNDRiOTciLCJhdWQiOiJleHBlbnNldHJhY2tlci00NGI5NyIsImF1dGhfdGltZSI6MTc2MTAyNTkzMiwidXNlcl9pZCI6ImNrM0hUVjJWcjBnRXIzMFVvQlRaMmtwWnVTazEiLCJzdWIiOiJjazNIVFYyVnIwZ0VyMzBVb0JUWjJrcFp1U2sxIiwiaWF0IjoxNzYxMDI1OTMyLCJleHAiOjE3NjEwMjk1MzIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsidGVzdEBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.oDoDih7a9fyVx8IAm2_BOA_PZ35JRYlGvqfTCx58kLYGNDDjBEYw4sR_wf7osIPJOHkosyKqXzSlh3e5Gsd-yA-rBLqwDDK8yLF6dDxTFglVU7Z7i4gS0koAlLn6nqpM0wsVsN19v2mTTyBFpJjhilvTiJWW5nrvV3yYFePnt8BFAbAQTZ9RuY1tZEwnDoQWHii5SXAg-AsGttqWgS8Qv6rC6jmjrWyoSU2ty0qZKr8QnGWDoafR4t_DeV9zmiqVoX6vE4f3xpZ5tGR-LExO07Ac2y0ZVtb7imfjRYGcpF5lLyANY-KRzChUY-MpKX_IuIX78Ep4l4eTWwjDhJz97g",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/expenses/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"expenses",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getExpense (Invalid token)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer AeyJhbGciOiJSUzI1NiIsImtpZCI6IjlkMjEzMGZlZjAyNTg3ZmQ4ODYxODg2OTgyMjczNGVmNzZhMTExNjUiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vZXhwZW5zZXRyYWNrZXItNDRiOTciLCJhdWQiOiJleHBlbnNldHJhY2tlci00NGI5NyIsImF1dGhfdGltZSI6MTc2MTAyNTkzMiwidXNlcl9pZCI6ImNrM0hUVjJWcjBnRXIzMFVvQlRaMmtwWnVTazEiLCJzdWIiOiJjazNIVFYyVnIwZ0VyMzBVb0JUWjJrcFp1U2sxIiwiaWF0IjoxNzYxMDI1OTMyLCJleHAiOjE3NjEwMjk1MzIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsidGVzdEBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.oDoDih7a9fyVx8IAm2_BOA_PZ35JRYlGvqfTCx58kLYGNDDjBEYw4sR_wf7osIPJOHkosyKqXzSlh3e5Gsd-yA-rBLqwDDK8yLF6dDxTFglVU7Z7i4gS0koAlLn6nqpM0wsVsN19v2mTTyBFpJjhilvTiJWW5nrvV3yYFePnt8BFAbAQTZ9RuY1tZEwnDoQWHii5SXAg-AsGttqWgS8Qv6rC6jmjrWyoSU2ty0qZKr8QnGWDoafR4t_DeV9zmiqVoX6vE4f3xpZ5tGR-LExO07Ac2y0ZVtb7imfjRYGcpF5lLyANY-KRzChUY-MpKX_IuIX78Ep4l4eTWwjDhJz97g",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/expenses/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"expenses",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getExpense (no expense)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjlkMjEzMGZlZjAyNTg3ZmQ4ODYxODg2OTgyMjczNGVmNzZhMTExNjUiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vZXhwZW5zZXRyYWNrZXItNDRiOTciLCJhdWQiOiJleHBlbnNldHJhY2tlci00NGI5NyIsImF1dGhfdGltZSI6MTc2MTAyNTkzMiwidXNlcl9pZCI6ImNrM0hUVjJWcjBnRXIzMFVvQlRaMmtwWnVTazEiLCJzdWIiOiJjazNIVFYyVnIwZ0VyMzBVb0JUWjJrcFp1U2sxIiwiaWF0IjoxNzYxMDI1OTMyLCJleHAiOjE3NjEwMjk1MzIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsidGVzdEBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.oDoDih7a9fyVx8IAm2_BOA_PZ35JRYlGvqfTCx58kLYGNDDjBEYw4sR_wf7osIPJOHkosyKqXzSlh3e5Gsd-yA-rBLqwDDK8yLF6dDxTFglVU7Z7i4gS0koAlLn6nqpM0wsVsN19v2mTTyBFpJjhilvTiJWW5nrvV3yYFePnt8BFAbAQTZ9RuY1tZEwnDoQWHii5SXAg-AsGttqWgS8Qv6rC6jmjrWyoSU2ty0qZKr8QnGWDoafR4t_DeV9zmiqVoX6vE4f3xpZ5tGR-LExO07Ac2y0ZVtb7imfjRYGcpF5lLyANY-KRzChUY-MpKX_IuIX78Ep4l4eTWwjDhJz97g",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/expenses/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"expenses",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Report Routes",
+			"item": [
+				{
+					"name": "Monthly Report (Success)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjlkMjEzMGZlZjAyNTg3ZmQ4ODYxODg2OTgyMjczNGVmNzZhMTExNjUiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vZXhwZW5zZXRyYWNrZXItNDRiOTciLCJhdWQiOiJleHBlbnNldHJhY2tlci00NGI5NyIsImF1dGhfdGltZSI6MTc2MTAyNTkzMiwidXNlcl9pZCI6ImNrM0hUVjJWcjBnRXIzMFVvQlRaMmtwWnVTazEiLCJzdWIiOiJjazNIVFYyVnIwZ0VyMzBVb0JUWjJrcFp1U2sxIiwiaWF0IjoxNzYxMDI1OTMyLCJleHAiOjE3NjEwMjk1MzIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsidGVzdEBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.oDoDih7a9fyVx8IAm2_BOA_PZ35JRYlGvqfTCx58kLYGNDDjBEYw4sR_wf7osIPJOHkosyKqXzSlh3e5Gsd-yA-rBLqwDDK8yLF6dDxTFglVU7Z7i4gS0koAlLn6nqpM0wsVsN19v2mTTyBFpJjhilvTiJWW5nrvV3yYFePnt8BFAbAQTZ9RuY1tZEwnDoQWHii5SXAg-AsGttqWgS8Qv6rC6jmjrWyoSU2ty0qZKr8QnGWDoafR4t_DeV9zmiqVoX6vE4f3xpZ5tGR-LExO07Ac2y0ZVtb7imfjRYGcpF5lLyANY-KRzChUY-MpKX_IuIX78Ep4l4eTWwjDhJz97g",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Coffee Break\",\r\n    \"amount\": 250,\r\n    \"category\": \"Beverages\",\r\n    \"date\": \"2025-10-01\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/reports/monthly/?month=10&&year=2025",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"reports",
+								"monthly",
+								""
+							],
+							"query": [
+								{
+									"key": "month",
+									"value": "10"
+								},
+								{
+									"key": null,
+									"value": null
+								},
+								{
+									"key": "year",
+									"value": "2025"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Monthly Report (missing token)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjlkMjEzMGZlZjAyNTg3ZmQ4ODYxODg2OTgyMjczNGVmNzZhMTExNjUiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vZXhwZW5zZXRyYWNrZXItNDRiOTciLCJhdWQiOiJleHBlbnNldHJhY2tlci00NGI5NyIsImF1dGhfdGltZSI6MTc2MTAyNTkzMiwidXNlcl9pZCI6ImNrM0hUVjJWcjBnRXIzMFVvQlRaMmtwWnVTazEiLCJzdWIiOiJjazNIVFYyVnIwZ0VyMzBVb0JUWjJrcFp1U2sxIiwiaWF0IjoxNzYxMDI1OTMyLCJleHAiOjE3NjEwMjk1MzIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsidGVzdEBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.oDoDih7a9fyVx8IAm2_BOA_PZ35JRYlGvqfTCx58kLYGNDDjBEYw4sR_wf7osIPJOHkosyKqXzSlh3e5Gsd-yA-rBLqwDDK8yLF6dDxTFglVU7Z7i4gS0koAlLn6nqpM0wsVsN19v2mTTyBFpJjhilvTiJWW5nrvV3yYFePnt8BFAbAQTZ9RuY1tZEwnDoQWHii5SXAg-AsGttqWgS8Qv6rC6jmjrWyoSU2ty0qZKr8QnGWDoafR4t_DeV9zmiqVoX6vE4f3xpZ5tGR-LExO07Ac2y0ZVtb7imfjRYGcpF5lLyANY-KRzChUY-MpKX_IuIX78Ep4l4eTWwjDhJz97g",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Coffee Break\",\r\n    \"amount\": 250,\r\n    \"category\": \"Beverages\",\r\n    \"date\": \"2025-10-01\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/reports/monthly/?month=10&&year=2025",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"reports",
+								"monthly",
+								""
+							],
+							"query": [
+								{
+									"key": "month",
+									"value": "10"
+								},
+								{
+									"key": null,
+									"value": null
+								},
+								{
+									"key": "year",
+									"value": "2025"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Monthly report (invalid token)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer AeyJhbGciOiJSUzI1NiIsImtpZCI6IjlkMjEzMGZlZjAyNTg3ZmQ4ODYxODg2OTgyMjczNGVmNzZhMTExNjUiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vZXhwZW5zZXRyYWNrZXItNDRiOTciLCJhdWQiOiJleHBlbnNldHJhY2tlci00NGI5NyIsImF1dGhfdGltZSI6MTc2MTAyNTkzMiwidXNlcl9pZCI6ImNrM0hUVjJWcjBnRXIzMFVvQlRaMmtwWnVTazEiLCJzdWIiOiJjazNIVFYyVnIwZ0VyMzBVb0JUWjJrcFp1U2sxIiwiaWF0IjoxNzYxMDI1OTMyLCJleHAiOjE3NjEwMjk1MzIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsidGVzdEBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.oDoDih7a9fyVx8IAm2_BOA_PZ35JRYlGvqfTCx58kLYGNDDjBEYw4sR_wf7osIPJOHkosyKqXzSlh3e5Gsd-yA-rBLqwDDK8yLF6dDxTFglVU7Z7i4gS0koAlLn6nqpM0wsVsN19v2mTTyBFpJjhilvTiJWW5nrvV3yYFePnt8BFAbAQTZ9RuY1tZEwnDoQWHii5SXAg-AsGttqWgS8Qv6rC6jmjrWyoSU2ty0qZKr8QnGWDoafR4t_DeV9zmiqVoX6vE4f3xpZ5tGR-LExO07Ac2y0ZVtb7imfjRYGcpF5lLyANY-KRzChUY-MpKX_IuIX78Ep4l4eTWwjDhJz97g",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/reports/monthly/?month=10&&year=2025",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"reports",
+								"monthly",
+								""
+							],
+							"query": [
+								{
+									"key": "month",
+									"value": "10"
+								},
+								{
+									"key": null,
+									"value": null
+								},
+								{
+									"key": "year",
+									"value": "2025"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Monthly Report (missing query params)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjlkMjEzMGZlZjAyNTg3ZmQ4ODYxODg2OTgyMjczNGVmNzZhMTExNjUiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vZXhwZW5zZXRyYWNrZXItNDRiOTciLCJhdWQiOiJleHBlbnNldHJhY2tlci00NGI5NyIsImF1dGhfdGltZSI6MTc2MTAyNTkzMiwidXNlcl9pZCI6ImNrM0hUVjJWcjBnRXIzMFVvQlRaMmtwWnVTazEiLCJzdWIiOiJjazNIVFYyVnIwZ0VyMzBVb0JUWjJrcFp1U2sxIiwiaWF0IjoxNzYxMDI1OTMyLCJleHAiOjE3NjEwMjk1MzIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsidGVzdEBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.oDoDih7a9fyVx8IAm2_BOA_PZ35JRYlGvqfTCx58kLYGNDDjBEYw4sR_wf7osIPJOHkosyKqXzSlh3e5Gsd-yA-rBLqwDDK8yLF6dDxTFglVU7Z7i4gS0koAlLn6nqpM0wsVsN19v2mTTyBFpJjhilvTiJWW5nrvV3yYFePnt8BFAbAQTZ9RuY1tZEwnDoQWHii5SXAg-AsGttqWgS8Qv6rC6jmjrWyoSU2ty0qZKr8QnGWDoafR4t_DeV9zmiqVoX6vE4f3xpZ5tGR-LExO07Ac2y0ZVtb7imfjRYGcpF5lLyANY-KRzChUY-MpKX_IuIX78Ep4l4eTWwjDhJz97g",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/reports/monthly/?month=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"reports",
+								"monthly",
+								""
+							],
+							"query": [
+								{
+									"key": "month",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Monthly Report (no expense)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjlkMjEzMGZlZjAyNTg3ZmQ4ODYxODg2OTgyMjczNGVmNzZhMTExNjUiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vZXhwZW5zZXRyYWNrZXItNDRiOTciLCJhdWQiOiJleHBlbnNldHJhY2tlci00NGI5NyIsImF1dGhfdGltZSI6MTc2MTAyNTkzMiwidXNlcl9pZCI6ImNrM0hUVjJWcjBnRXIzMFVvQlRaMmtwWnVTazEiLCJzdWIiOiJjazNIVFYyVnIwZ0VyMzBVb0JUWjJrcFp1U2sxIiwiaWF0IjoxNzYxMDI1OTMyLCJleHAiOjE3NjEwMjk1MzIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsidGVzdEBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.oDoDih7a9fyVx8IAm2_BOA_PZ35JRYlGvqfTCx58kLYGNDDjBEYw4sR_wf7osIPJOHkosyKqXzSlh3e5Gsd-yA-rBLqwDDK8yLF6dDxTFglVU7Z7i4gS0koAlLn6nqpM0wsVsN19v2mTTyBFpJjhilvTiJWW5nrvV3yYFePnt8BFAbAQTZ9RuY1tZEwnDoQWHii5SXAg-AsGttqWgS8Qv6rC6jmjrWyoSU2ty0qZKr8QnGWDoafR4t_DeV9zmiqVoX6vE4f3xpZ5tGR-LExO07Ac2y0ZVtb7imfjRYGcpF5lLyANY-KRzChUY-MpKX_IuIX78Ep4l4eTWwjDhJz97g",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/reports/monthly/?month=01&&year=2025",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"reports",
+								"monthly",
+								""
+							],
+							"query": [
+								{
+									"key": "month",
+									"value": "01"
+								},
+								{
+									"key": null,
+									"value": null
+								},
+								{
+									"key": "year",
+									"value": "2025"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetByCategory (Success)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjlkMjEzMGZlZjAyNTg3ZmQ4ODYxODg2OTgyMjczNGVmNzZhMTExNjUiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vZXhwZW5zZXRyYWNrZXItNDRiOTciLCJhdWQiOiJleHBlbnNldHJhY2tlci00NGI5NyIsImF1dGhfdGltZSI6MTc2MTAyNTkzMiwidXNlcl9pZCI6ImNrM0hUVjJWcjBnRXIzMFVvQlRaMmtwWnVTazEiLCJzdWIiOiJjazNIVFYyVnIwZ0VyMzBVb0JUWjJrcFp1U2sxIiwiaWF0IjoxNzYxMDI1OTMyLCJleHAiOjE3NjEwMjk1MzIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsidGVzdEBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.oDoDih7a9fyVx8IAm2_BOA_PZ35JRYlGvqfTCx58kLYGNDDjBEYw4sR_wf7osIPJOHkosyKqXzSlh3e5Gsd-yA-rBLqwDDK8yLF6dDxTFglVU7Z7i4gS0koAlLn6nqpM0wsVsN19v2mTTyBFpJjhilvTiJWW5nrvV3yYFePnt8BFAbAQTZ9RuY1tZEwnDoQWHii5SXAg-AsGttqWgS8Qv6rC6jmjrWyoSU2ty0qZKr8QnGWDoafR4t_DeV9zmiqVoX6vE4f3xpZ5tGR-LExO07Ac2y0ZVtb7imfjRYGcpF5lLyANY-KRzChUY-MpKX_IuIX78Ep4l4eTWwjDhJz97g",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/reports/category/?category=Food",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"reports",
+								"category",
+								""
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "Food"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetByCategory (no expense)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjlkMjEzMGZlZjAyNTg3ZmQ4ODYxODg2OTgyMjczNGVmNzZhMTExNjUiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vZXhwZW5zZXRyYWNrZXItNDRiOTciLCJhdWQiOiJleHBlbnNldHJhY2tlci00NGI5NyIsImF1dGhfdGltZSI6MTc2MTAyNTkzMiwidXNlcl9pZCI6ImNrM0hUVjJWcjBnRXIzMFVvQlRaMmtwWnVTazEiLCJzdWIiOiJjazNIVFYyVnIwZ0VyMzBVb0JUWjJrcFp1U2sxIiwiaWF0IjoxNzYxMDI1OTMyLCJleHAiOjE3NjEwMjk1MzIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsidGVzdEBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.oDoDih7a9fyVx8IAm2_BOA_PZ35JRYlGvqfTCx58kLYGNDDjBEYw4sR_wf7osIPJOHkosyKqXzSlh3e5Gsd-yA-rBLqwDDK8yLF6dDxTFglVU7Z7i4gS0koAlLn6nqpM0wsVsN19v2mTTyBFpJjhilvTiJWW5nrvV3yYFePnt8BFAbAQTZ9RuY1tZEwnDoQWHii5SXAg-AsGttqWgS8Qv6rC6jmjrWyoSU2ty0qZKr8QnGWDoafR4t_DeV9zmiqVoX6vE4f3xpZ5tGR-LExO07Ac2y0ZVtb7imfjRYGcpF5lLyANY-KRzChUY-MpKX_IuIX78Ep4l4eTWwjDhJz97g",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/reports/category/?category=Travel",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"reports",
+								"category",
+								""
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "Travel"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetByCategory (missing token)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjlkMjEzMGZlZjAyNTg3ZmQ4ODYxODg2OTgyMjczNGVmNzZhMTExNjUiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vZXhwZW5zZXRyYWNrZXItNDRiOTciLCJhdWQiOiJleHBlbnNldHJhY2tlci00NGI5NyIsImF1dGhfdGltZSI6MTc2MTAyNTkzMiwidXNlcl9pZCI6ImNrM0hUVjJWcjBnRXIzMFVvQlRaMmtwWnVTazEiLCJzdWIiOiJjazNIVFYyVnIwZ0VyMzBVb0JUWjJrcFp1U2sxIiwiaWF0IjoxNzYxMDI1OTMyLCJleHAiOjE3NjEwMjk1MzIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsidGVzdEBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.oDoDih7a9fyVx8IAm2_BOA_PZ35JRYlGvqfTCx58kLYGNDDjBEYw4sR_wf7osIPJOHkosyKqXzSlh3e5Gsd-yA-rBLqwDDK8yLF6dDxTFglVU7Z7i4gS0koAlLn6nqpM0wsVsN19v2mTTyBFpJjhilvTiJWW5nrvV3yYFePnt8BFAbAQTZ9RuY1tZEwnDoQWHii5SXAg-AsGttqWgS8Qv6rC6jmjrWyoSU2ty0qZKr8QnGWDoafR4t_DeV9zmiqVoX6vE4f3xpZ5tGR-LExO07Ac2y0ZVtb7imfjRYGcpF5lLyANY-KRzChUY-MpKX_IuIX78Ep4l4eTWwjDhJz97g",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/reports/category/?category=Food",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"reports",
+								"category",
+								""
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "Food"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetByCategory (invalid token)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer AeyJhbGciOiJSUzI1NiIsImtpZCI6IjlkMjEzMGZlZjAyNTg3ZmQ4ODYxODg2OTgyMjczNGVmNzZhMTExNjUiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vZXhwZW5zZXRyYWNrZXItNDRiOTciLCJhdWQiOiJleHBlbnNldHJhY2tlci00NGI5NyIsImF1dGhfdGltZSI6MTc2MTAyNTkzMiwidXNlcl9pZCI6ImNrM0hUVjJWcjBnRXIzMFVvQlRaMmtwWnVTazEiLCJzdWIiOiJjazNIVFYyVnIwZ0VyMzBVb0JUWjJrcFp1U2sxIiwiaWF0IjoxNzYxMDI1OTMyLCJleHAiOjE3NjEwMjk1MzIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsidGVzdEBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.oDoDih7a9fyVx8IAm2_BOA_PZ35JRYlGvqfTCx58kLYGNDDjBEYw4sR_wf7osIPJOHkosyKqXzSlh3e5Gsd-yA-rBLqwDDK8yLF6dDxTFglVU7Z7i4gS0koAlLn6nqpM0wsVsN19v2mTTyBFpJjhilvTiJWW5nrvV3yYFePnt8BFAbAQTZ9RuY1tZEwnDoQWHii5SXAg-AsGttqWgS8Qv6rC6jmjrWyoSU2ty0qZKr8QnGWDoafR4t_DeV9zmiqVoX6vE4f3xpZ5tGR-LExO07Ac2y0ZVtb7imfjRYGcpF5lLyANY-KRzChUY-MpKX_IuIX78Ep4l4eTWwjDhJz97g",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/reports/category/?category=Food",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"reports",
+								"category",
+								""
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "Food"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetByCategory (missing query params)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjlkMjEzMGZlZjAyNTg3ZmQ4ODYxODg2OTgyMjczNGVmNzZhMTExNjUiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vZXhwZW5zZXRyYWNrZXItNDRiOTciLCJhdWQiOiJleHBlbnNldHJhY2tlci00NGI5NyIsImF1dGhfdGltZSI6MTc2MTAyNTkzMiwidXNlcl9pZCI6ImNrM0hUVjJWcjBnRXIzMFVvQlRaMmtwWnVTazEiLCJzdWIiOiJjazNIVFYyVnIwZ0VyMzBVb0JUWjJrcFp1U2sxIiwiaWF0IjoxNzYxMDI1OTMyLCJleHAiOjE3NjEwMjk1MzIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsidGVzdEBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.oDoDih7a9fyVx8IAm2_BOA_PZ35JRYlGvqfTCx58kLYGNDDjBEYw4sR_wf7osIPJOHkosyKqXzSlh3e5Gsd-yA-rBLqwDDK8yLF6dDxTFglVU7Z7i4gS0koAlLn6nqpM0wsVsN19v2mTTyBFpJjhilvTiJWW5nrvV3yYFePnt8BFAbAQTZ9RuY1tZEwnDoQWHii5SXAg-AsGttqWgS8Qv6rC6jmjrWyoSU2ty0qZKr8QnGWDoafR4t_DeV9zmiqVoX6vE4f3xpZ5tGR-LExO07Ac2y0ZVtb7imfjRYGcpF5lLyANY-KRzChUY-MpKX_IuIX78Ep4l4eTWwjDhJz97g",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/reports/category/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"reports",
+								"category",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
